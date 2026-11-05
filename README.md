@@ -42,7 +42,7 @@ were unchanged.
 
 ## Documentation
 
-- [Research note](Geneva_Application_Aware_Research_Note.pdf):
+- [Research note](Geneva_HTTP_Delivery_Study.pdf):
   results, limitations and proposed next study.
 - [Architecture and experiments](geneva_walkthrough/Geneva_Architecture_and_Experiments.md):
   Geneva mechanisms and their connection to this study.
