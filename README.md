@@ -102,9 +102,7 @@ in `data/input_archives.json`; a complete re-audit requires that archive.
 ## Attribution
 
 Geneva's architecture, algorithms and packet primitives are credited
-to its authors. Contribution and assistance details are documented
-in the research note.
-
+to its authors. 
 ## References
 
 - [Geneva source](https://github.com/Kkevsterrr/geneva)
