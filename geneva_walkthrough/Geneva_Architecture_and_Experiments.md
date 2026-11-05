@@ -173,8 +173,7 @@ feedback on a suitable deployment scenario.
 
 Geneva's architecture, search algorithms and packet primitives are
 credited to its authors. This study adds local harness corrections,
-a file-verification workload and supporting analysis; contribution
-and assistance details are documented in the research note.
+a file-verification workload and supporting analysis; 
 
 The evidence is limited to one VM, two simplified censors, three
 repeats per condition and a fixed reference object. It does not
