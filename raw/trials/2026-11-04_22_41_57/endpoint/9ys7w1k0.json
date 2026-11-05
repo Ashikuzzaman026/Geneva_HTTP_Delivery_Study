@@ -1,0 +1,28 @@
+{
+  "diagnosis": {
+    "censorship_attribution": "not_inferred",
+    "delivery_verified": false,
+    "evidence": [
+      "Socket reported a connection reset at stage headers"
+    ],
+    "root_cause": "undetermined",
+    "symptom": "reset_observed"
+  },
+  "observation": {
+    "bytes_received": 0,
+    "connect_ms": 9.587,
+    "connected": true,
+    "declared_bytes": null,
+    "errno": 104,
+    "error_kind": "reset",
+    "error_message": "[Errno 104] Connection reset by peer",
+    "expected_bytes": 262144,
+    "expected_sha256": "cb5a0082a4610fb43487457de2bdeaa27599541c26705eb73582e57d43bc5911",
+    "headers_ms": null,
+    "schema_version": 1,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage": "headers",
+    "status": null,
+    "total_ms": 35.082
+  }
+}

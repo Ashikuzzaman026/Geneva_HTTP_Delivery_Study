@@ -1,0 +1,191 @@
+stty: 'standard input': Inappropriate ioctl for device
+/usr/local/lib/python3.6/site-packages/scapy/config.py:384: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  import cryptography
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
+  cipher=algorithms.Blowfish,
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
+  cipher=algorithms.CAST5,
+2026-11-04 22:40:22 DEBUG:Launching strategy evolution: --eval-only [TCP:flags:PA]-fragment{tcp:22:True}-| --no-skip-empty --test-type filecheck --censor censor1 --bad-word ultrasurf --probe-host ultrasurf.example --file-server-mode normal --port 18080 --runs 1 --log debug
+2026-11-04 22:40:22 INFO:Logging results to trials/2026-11-04_22:40:22/logs
+2026-11-04 22:40:22 DEBUG:Initializing docker environment.
+2026-11-04 22:40:23 DEBUG:Launching filecheck plugin (run 1) for [TCP:flags:PA]-fragment{tcp:22:True}-| \/ 
+2026-11-04 22:40:23 DEBUG:docker exec --privileged server_main netstat -ano
+2026-11-04 22:40:23 DEBUG:Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       Timer
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   Path
+
+2026-11-04 22:40:23 DEBUG:Testing if port 18080 is open in the docker container
+2026-11-04 22:40:23 DEBUG:Using port 18080
+2026-11-04 22:40:23 DEBUG:Launching client and server directly.
+2026-11-04 22:40:23 DEBUG:Evaluator: running server inside docker
+2026-11-04 22:40:23 DEBUG: Starting censor censor1 with driver
+2026-11-04 22:40:23 DEBUG:docker exec --privileged censor_main python code/censors/censor_driver.py --censor censor1 --environment-id hshqzkr9 --output-directory trials/2026-11-04_22:40:22 --port 18080 --log debug --forbidden ultrasurf --queue 356
+2026-11-04 22:40:23 DEBUG:docker exec --privileged server_main python code/plugins/plugin_server.py --test-type filecheck --test-type filecheck --strategy  --log debug --output-directory trials/2026-11-04_22:40:22 --port 18080 --censor censor1 --workers 1 --bad-word ultrasurf --runs 1 --fitness-by avg --no-skip-empty --wait-for-shutdown --file-server-mode normal --environment-id hshqzkr9 --no-engine
+2026-11-04 22:40:23 DEBUG:Evaluator waiting for confirmation of server startup
+/usr/local/lib/python3.6/site-packages/scapy/config.py:384: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  import cryptography
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
+  cipher=algorithms.Blowfish,
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
+  cipher=algorithms.CAST5,
+2026-11-04 22:40:23 DEBUG:[CENSOR] Censor created to port 18080 on queue 356
+2026-11-04 22:40:23 DEBUG:[CENSOR] Censor initializing.
+2026-11-04 22:40:23 DEBUG:[CENSOR] Censor iptables added
+2026-11-04 22:40:23 DEBUG:[CENSOR] Censor binding
+2026-11-04 22:40:23 DEBUG:[CENSOR] Censor bound
+/usr/local/lib/python3.6/site-packages/scapy/config.py:384: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  import cryptography
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
+  cipher=algorithms.Blowfish,
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
+  cipher=algorithms.CAST5,
+2026-11-04 22:40:24 DEBUG:[SERVER] Launching filecheck server
+2026-11-04 22:40:24 DEBUG:[SERVER] Sniffer starting to port 18080
+2026-11-04 22:40:24 DEBUG:[SERVER] Monitoring for server startup on port 18080
+2026-11-04 22:40:24 DEBUG:[SERVER] Waiting for server port binding
+2026-11-04 22:40:24 INFO:[SERVER] FILE_SERVER ready: reference-file HTTP service
+2026-11-04 22:40:24 DEBUG:[SERVER] Confirmed server listener on port 18080
+2026-11-04 22:40:24 DEBUG:[SERVER] Server ready.
+2026-11-04 22:40:25 DEBUG:Evaluator: Server ready.
+2026-11-04 22:40:25 DEBUG:docker exec --privileged client_main python code/plugins/plugin_client.py --server 172.17.0.5 --test-type filecheck --strategy "[TCP:flags:PA]-fragment{tcp:22:True}-| \/ " --log debug --output-directory trials/2026-11-04_22:40:22 --port 18080 --censor censor1 --workers 1 --bad-word ultrasurf --runs 1 --fitness-by avg --no-skip-empty --environment-id hshqzkr9 --server 172.17.0.5 --wait-for-censor --probe-host ultrasurf.example --transfer-timeout 10
+/usr/local/lib/python3.6/site-packages/scapy/config.py:384: CryptographyDeprecationWarning: Python 3.6 is no longer supported by the Python core team. Therefore, support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.6.
+  import cryptography
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:469: CryptographyDeprecationWarning: Blowfish has been deprecated
+  cipher=algorithms.Blowfish,
+/usr/local/lib/python3.6/site-packages/scapy/layers/ipsec.py:483: CryptographyDeprecationWarning: CAST5 has been deprecated
+  cipher=algorithms.CAST5,
+2026-11-04 22:40:25 DEBUG:[CLIENT] Launching filecheck
+2026-11-04 22:40:25 DEBUG:[CLIENT] Sniffer starting to port 18080
+2026-11-04 22:40:26 DEBUG:[ENGINE] Engine created with strategy [TCP:flags:PA]-fragment{tcp:22:True}-| \/ (ID hshqzkr9) to port 18080
+2026-11-04 22:40:26 DEBUG:[ENGINE] Configuring iptables rules
+2026-11-04 22:40:26 DEBUG:[ENGINE] iptables -A OUTPUT -p tcp --match tcp --dport 18080 -j NFQUEUE --queue-num 2
+2026-11-04 22:40:26 DEBUG:[ENGINE] iptables -A INPUT -p tcp --match tcp --sport 18080 -j NFQUEUE --queue-num 1
+2026-11-04 22:40:26 DEBUG:[ENGINE] iptables -A OUTPUT -p udp --match udp --dport 18080 -j NFQUEUE --queue-num 2
+2026-11-04 22:40:26 DEBUG:[ENGINE] iptables -A INPUT -p udp --match udp --sport 18080 -j NFQUEUE --queue-num 1
+2026-11-04 22:40:26 DEBUG:[ENGINE] NFQueue Initialized after 0
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:2222 --> 172.17.0.5:18080 [S] 4524: b'checking'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Writing ready file to /code/trials/2026-11-04_22:40:22/flags/hshqzkr9.censor_ready
+2026-11-04 22:40:26 DEBUG:[CENSOR] Censor ready.
+2026-11-04 22:40:26 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [S] 6743: 
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [S] 6743: 
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [S] 6743: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [S] 6743: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Synchronizing TCB (166104511) on packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [S] 6743: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [SA] 40593: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Ignoring packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [SA] 40593: 
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [SA] 40593: 
+2026-11-04 22:40:26 DEBUG:[SERVER] TCP 172.17.0.4:40776 --> 172.17.0.5:18080 [S] 6742: 
+2026-11-04 22:40:26 DEBUG:[ENGINE] Received packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [SA] 40593: 
+2026-11-04 22:40:26 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [A] 52131: 
+2026-11-04 22:40:26 DEBUG:[SERVER] TCP 172.17.0.5:18080 --> 172.17.0.4:40776 [SA] 22618: 
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [A] 52131: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [A] 52131: 
+2026-11-04 22:40:26 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 751: b'GET / HTTP/1.1\r\nHost: ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[SERVER] TCP 172.17.0.4:40776 --> 172.17.0.5:18080 [A] 52130: 
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [A] 52131: 
+2026-11-04 22:40:26 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-fragment{tcp:22:True}-|
+2026-11-04 22:40:26 DEBUG:[ENGINE]   - Fragmenting given packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 751: b'GET / HTTP/1.1\r\nHost: ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'GET / HTTP/1.1\r\nHost: '
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 1003: b'GET / HTTP/1.1\r\nHost: '
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [A] 52094: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Ignoring packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [A] 52094: 
+2026-11-04 22:40:26 DEBUG:[SERVER] TCP 172.17.0.4:40776 --> 172.17.0.5:18080 [PA] 1002: b'GET / HTTP/1.1\r\nHost: '
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 1003: b'GET / HTTP/1.1\r\nHost: '
+2026-11-04 22:40:26 DEBUG:[SERVER] TCP 172.17.0.5:18080 --> 172.17.0.4:40776 [A] 22610: 
+2026-11-04 22:40:26 DEBUG:[ENGINE] Received packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [A] 52094: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 51849: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [A] 52094: 
+2026-11-04 22:40:26 DEBUG:[CENSOR] Packet triggered censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 51849: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 51849: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 51621: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-fragment{tcp:22:True}-|
+2026-11-04 22:40:26 DEBUG:[ENGINE]   - Fragmenting given packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 51621: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 36231: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Dropping all from this IP 172.17.0.3...
+2026-11-04 22:40:26 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'nection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 36231: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 1706: b'nection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Dropping all from this IP 172.17.0.3...
+2026-11-04 22:40:26 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 1706: b'nection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 51402: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-fragment{tcp:22:True}-|
+2026-11-04 22:40:26 DEBUG:[ENGINE]   - Fragmenting given packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 51402: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:26 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'nection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 36012: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Dropping all from this IP 172.17.0.3...
+2026-11-04 22:40:26 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 36012: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 1487: b'nection: close\r\n\r\n'
+2026-11-04 22:40:26 DEBUG:[CENSOR] Dropping all from this IP 172.17.0.3...
+2026-11-04 22:40:26 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:26 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 1487: b'nection: close\r\n\r\n'
+2026-11-04 22:40:27 DEBUG:[ENGINE] Received outbound packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 50734: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:27 DEBUG:[ENGINE]  + out action tree triggered: [TCP:flags:PA]-fragment{tcp:22:True}-|
+2026-11-04 22:40:27 DEBUG:[ENGINE]   - Fragmenting given packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 50734: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:27 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:27 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 35344: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:27 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 35344: b'ultrasurf.example\r\nCon'
+2026-11-04 22:40:27 DEBUG:[CENSOR] Dropping all from this IP 172.17.0.3...
+2026-11-04 22:40:27 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:27 DEBUG:[ENGINE] Sending packet TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] None: b'nection: close\r\n\r\n'
+2026-11-04 22:40:27 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 819: b'nection: close\r\n\r\n'
+2026-11-04 22:40:27 DEBUG:[CENSOR] Dropping all from this IP 172.17.0.3...
+2026-11-04 22:40:27 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:27 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 819: b'nection: close\r\n\r\n'
+2026-11-04 22:40:27 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50881: 
+2026-11-04 22:40:27 DEBUG:[CENSOR] Ignoring packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50881: 
+2026-11-04 22:40:27 DEBUG:[SERVER] TCP 172.17.0.5:18080 --> 172.17.0.4:40776 [FA] 22610: 
+2026-11-04 22:40:27 DEBUG:[CLIENT] TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50881: 
+2026-11-04 22:40:27 DEBUG:[ENGINE] Received packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50881: 
+2026-11-04 22:40:27 INFO:[CLIENT] ENDPOINT_RESULT {"diagnosis": {"censorship_attribution": "not_inferred", "delivery_verified": false, "evidence": ["Endpoint error: socket_error"], "root_cause": "undetermined", "symptom": "protocol_or_transport_error"}, "observation": {"bytes_received": 0, "connect_ms": 7.262, "connected": true, "declared_bytes": null, "errno": null, "error_kind": "socket_error", "error_message": "Remote end closed connection without response", "expected_bytes": 262144, "expected_sha256": "cb5a0082a4610fb43487457de2bdeaa27599541c26705eb73582e57d43bc5911", "headers_ms": null, "schema_version": 1, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", "stage": "headers", "status": null, "total_ms": 1233.686}}
+2026-11-04 22:40:27 DEBUG:[CLIENT] Plugin client has finished.
+2026-11-04 22:40:27 DEBUG:[CLIENT] Initiating fitness adjustment
+2026-11-04 22:40:27 DEBUG:[CLIENT] Punishing for unused actions
+2026-11-04 22:40:27 DEBUG:[CLIENT]  - Number of unused actions in out forest: 0
+2026-11-04 22:40:27 DEBUG:[CLIENT]  - Number of unused actions in in forest: 0
+2026-11-04 22:40:27 DEBUG:[ENGINE] Shutting down NFQueue
+2026-11-04 22:40:27 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50669: 
+2026-11-04 22:40:27 DEBUG:[CENSOR] Ignoring packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50669: 
+2026-11-04 22:40:27 DEBUG:[SERVER] TCP 172.17.0.5:18080 --> 172.17.0.4:40776 [FA] 22610: 
+2026-11-04 22:40:27 DEBUG:[CLIENT] TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50669: 
+2026-11-04 22:40:27 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50410: 
+2026-11-04 22:40:27 DEBUG:[SERVER] TCP 172.17.0.5:18080 --> 172.17.0.4:40776 [FA] 22610: 
+2026-11-04 22:40:27 DEBUG:[CENSOR] Ignoring packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50410: 
+2026-11-04 22:40:27 DEBUG:[CLIENT] TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 50410: 
+2026-11-04 22:40:28 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 49989: 
+2026-11-04 22:40:28 DEBUG:[SERVER] TCP 172.17.0.5:18080 --> 172.17.0.4:40776 [FA] 22610: 
+2026-11-04 22:40:28 DEBUG:[CENSOR] Ignoring packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 49989: 
+2026-11-04 22:40:28 DEBUG:[CLIENT] TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 49989: 
+2026-11-04 22:40:29 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 49141: 
+2026-11-04 22:40:29 DEBUG:[CENSOR] Ignoring packet: TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 49141: 
+2026-11-04 22:40:29 DEBUG:[SERVER] TCP 172.17.0.5:18080 --> 172.17.0.4:40776 [FA] 22610: 
+2026-11-04 22:40:29 DEBUG:[CLIENT] TCP 172.17.0.5:18080 --> 172.17.0.3:40776 [FA] 49141: 
+2026-11-04 22:40:29 DEBUG:[ENGINE] Configuring iptables rules
+2026-11-04 22:40:29 DEBUG:[ENGINE] iptables -D OUTPUT -p tcp --match tcp --dport 18080 -j NFQUEUE --queue-num 2
+2026-11-04 22:40:29 DEBUG:[ENGINE] iptables -D INPUT -p tcp --match tcp --sport 18080 -j NFQUEUE --queue-num 1
+2026-11-04 22:40:29 DEBUG:[ENGINE] iptables -D OUTPUT -p udp --match udp --dport 18080 -j NFQUEUE --queue-num 2
+2026-11-04 22:40:29 DEBUG:[ENGINE] iptables -D INPUT -p udp --match udp --sport 18080 -j NFQUEUE --queue-num 1
+2026-11-04 22:40:29 DEBUG:[CENSOR] Inbound packet to censor: TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 46955: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:29 DEBUG:[CENSOR] Dropping all from this IP 172.17.0.3...
+2026-11-04 22:40:29 DEBUG:[CENSOR] Marking IP 172.17.0.3 for dropping...
+2026-11-04 22:40:29 DEBUG:[CLIENT] TCP 172.17.0.3:40776 --> 172.17.0.5:18080 [PA] 22649: b'ultrasurf.example\r\nConnection: close\r\n\r\n'
+2026-11-04 22:40:30 DEBUG:[CLIENT] Sniffer stopping
+2026-11-04 22:40:30 DEBUG:[CLIENT] Fitness: -400
+2026-11-04 22:40:30 DEBUG:Evaluator shutting down server.
+2026-11-04 22:40:30 DEBUG:Dockerized censor thread exiting
+2026-11-04 22:40:30 DEBUG:[SERVER] Server for hshqzkr9 shutting down.
+2026-11-04 22:40:31 DEBUG:Storing fitness of [-400.0] by: avg
+2026-11-04 22:40:31 INFO:[hshqzkr9] Fitness -400.0: [TCP:flags:PA]-fragment{tcp:22:True}-| \/ 
+2026-11-04 22:40:31 DEBUG:Cleaning up docker (stop)
+2026-11-04 22:40:31 DEBUG:Cleaning up docker (rm)
+2026-11-04 22:40:31 INFO:[-400.0]
+2026-11-04 22:40:31 INFO:Trial 0: failure! (fitness = -400)
+2026-11-04 22:40:31 INFO:Overall 0/1 = 0%
+2026-11-04 22:40:31 INFO:Exiting eval-only.

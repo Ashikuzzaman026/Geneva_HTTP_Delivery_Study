@@ -1,0 +1,111 @@
+diff --git a/evaluator.py b/evaluator.py
+index 7f6137a..4535e7f 100644
+--- a/evaluator.py
++++ b/evaluator.py
+@@ -122,7 +122,7 @@ class Evaluator():
+             import docker
+             self.use_docker = True
+             self.docker_client = docker.from_env()
+-            self.apiclient = docker.APIClient()
++            self.apiclient = docker.APIClient(version="auto")
+ 
+         self.logger = logger
+ 
+diff --git a/plugins/echo/client.py b/plugins/echo/client.py
+index ccda2b0..87ada48 100644
+--- a/plugins/echo/client.py
++++ b/plugins/echo/client.py
+@@ -61,6 +61,7 @@ class EchoClient(ClientPlugin):
+         Try to make a forbidden GET request to the server.
+         """
+         fitness = 0
++        completed = 0
+         port = int(args["port"])
+         server = args["server"]
+         bad_word = args["bad_word"]
+@@ -75,10 +76,24 @@ class EchoClient(ClientPlugin):
+                 if type(msg) == str:
+                     msg = msg.encode()
+                 client.sendall(msg)
+-                server_data = client.recv(1024)
++                server_data = b""
++                deadline = time.monotonic() + 10
++                while len(server_data) < len(msg):
++                    remaining = deadline - time.monotonic()
++                    if remaining <= 0:
++                        raise socket.timeout("Incomplete echo response")
++                    client.settimeout(remaining)
++                    chunk = client.recv(min(1024, len(msg) - len(server_data)))
++                    if not chunk:
++                        break
++                    server_data += chunk
++                client.settimeout(10)
++                logger.debug("Echo bytes: received=%d expected=%d",
++                             len(server_data), len(msg))
+                 logger.debug("Data recieved: %s", server_data.decode('utf-8', 'ignore'))
+                 if server_data == msg:
+                     fitness += 100
++                    completed += 1
+                 elif server_data:
+                     fitness -= 90
+                     break
+@@ -111,4 +126,7 @@ class EchoClient(ClientPlugin):
+             fitness = -120
+         finally:
+             logger.debug("Client finished echo test.")
++        logger.debug("Complete echo exchanges: %d/5", completed)
++        if completed != 5:
++            fitness = min(fitness, -100)
+         return fitness * 4
+diff --git a/plugins/echo/server.py b/plugins/echo/server.py
+index 0ddd802..d6a198a 100644
+--- a/plugins/echo/server.py
++++ b/plugins/echo/server.py
+@@ -58,8 +58,10 @@ class EchoServer(ServerPlugin):
+                 logger.error("Failed to get connection")
+                 return
+             # Echo data back and forth
+-            for i in range(0, 5):
++            while True:
+                 data = connection.recv(1024)
++                if not data:
++                    break
+                 connection.sendall(data)
+ 
+             connection.close()
+diff --git a/plugins/plugin_server.py b/plugins/plugin_server.py
+index 0cd2e86..a55b429 100644
+--- a/plugins/plugin_server.py
++++ b/plugins/plugin_server.py
+@@ -127,17 +127,24 @@ class ServerPlugin(Plugin):
+         while count < max_wait:
+             if count % 10 == 0:
+                 logger.debug("Waiting for server port binding")
+-            # Bind TCP socket
+-            try:
+-                with socket.socket() as sock:
+-                    sock.bind(('', int(args["port"])))
+-            except OSError:
++            # Observe the server listener without occupying its port.
++            listening = any(
++                conn.status == psutil.CONN_LISTEN
++                and conn.laddr
++                and conn.laddr.port == int(args["port"])
++                and conn.pid == self.server_proc.pid
++                for conn in psutil.net_connections(kind="tcp")
++            )
++            if listening:
++                logger.debug("Confirmed server listener on port %s",
++                             args["port"])
+                 break
++            if not self.server_proc.is_alive():
++                raise RuntimeError("Server process exited before listening")
+             time.sleep(0.5)
+             count += 1
+         else:
+-            logger.warn("Server never seemed to bind to port")
+-            return
++            raise RuntimeError("Server did not start listening in time")
+ 
+         self.write_startup_file(args, logger)
+ 

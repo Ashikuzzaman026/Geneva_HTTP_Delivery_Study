@@ -1,0 +1,10 @@
+{
+  "trials": 36,
+  "valid": 36,
+  "comparison_trials": 24,
+  "fault_trials": 12,
+  "http200_false_accepts_on_faults": 6,
+  "http200_and_length_false_accepts_on_faults": 3,
+  "verified_false_accepts_on_faults": 0,
+  "causal_attribution": "Not implemented: endpoint failures explicitly abstain on root cause"
+}

@@ -1,0 +1,265 @@
+{
+  "scope": "Offline synthetic-packet walkthrough; original Geneva functions invoked",
+  "expected_upstream_commit": "61a4a5104641ddbba6dd0526013e85a5be875203",
+  "actual_commit": "unavailable",
+  "python": "3.12.14",
+  "checks": [
+    {
+      "check": "split22 preserves stream bytes and TCP offsets",
+      "passed": true,
+      "evidence": {
+        "dna": "[TCP:flags:PA]-fragment{tcp:22:True}-| \\/ ",
+        "lengths": [
+          22,
+          40
+        ],
+        "sequences": [
+          1000,
+          1022
+        ],
+        "payloads": [
+          "GET / HTTP/1.1\r\nHost: ",
+          "ultrasurf.example\r\nConnection: close\r\n\r\n"
+        ]
+      }
+    },
+    {
+      "check": "split22 keyword placement",
+      "passed": true,
+      "evidence": {
+        "keyword_in_each_segment": [
+          false,
+          true
+        ],
+        "scope": "Packet-local demonstration; not a claim about stream-reassembling censors"
+      }
+    },
+    {
+      "check": "split26 preserves stream bytes and TCP offsets",
+      "passed": true,
+      "evidence": {
+        "dna": "[TCP:flags:PA]-fragment{tcp:26:True}-| \\/ ",
+        "lengths": [
+          26,
+          36
+        ],
+        "sequences": [
+          1000,
+          1026
+        ],
+        "payloads": [
+          "GET / HTTP/1.1\r\nHost: ultr",
+          "asurf.example\r\nConnection: close\r\n\r\n"
+        ]
+      }
+    },
+    {
+      "check": "split26 keyword placement",
+      "passed": true,
+      "evidence": {
+        "keyword_in_each_segment": [
+          false,
+          false
+        ],
+        "scope": "Packet-local demonstration; not a claim about stream-reassembling censors"
+      }
+    },
+    {
+      "check": "Nonmatching TCP flags bypass PA trigger",
+      "passed": true,
+      "evidence": {
+        "flags": "A",
+        "outgoing_packets": 1
+      }
+    },
+    {
+      "check": "Outbound forest does not transform inbound packet",
+      "passed": true,
+      "evidence": {
+        "direction": "in",
+        "outgoing_packets": 1
+      }
+    },
+    {
+      "check": "Empty strategy is packet passthrough",
+      "passed": true,
+      "evidence": {
+        "outgoing_packets": 1
+      }
+    },
+    {
+      "check": "Duplicate action branches into two copies",
+      "passed": true,
+      "evidence": {
+        "outgoing_packets": 2
+      }
+    },
+    {
+      "check": "Drop action produces no output packets",
+      "passed": true,
+      "evidence": {
+        "outgoing_packets": 0
+      }
+    },
+    {
+      "check": "Tamper changes selected header while preserving payload",
+      "passed": true,
+      "evidence": {
+        "ttl": 42
+      }
+    }
+  ],
+  "source_map": [
+    {
+      "component": "parser",
+      "file": "actions/utils.py",
+      "symbol": "parse",
+      "line": 52,
+      "file_sha256": "10cc4f819cc0da8415f8e01589124ebaa59986333b03199b2bc81dde4f2f2a80"
+    },
+    {
+      "component": "trigger",
+      "file": "actions/trigger.py",
+      "symbol": "Trigger.is_applicable",
+      "line": 78,
+      "file_sha256": "2f14091cc2fc9f7902ee6ea63bbcd329a7d8fdbb47f1925686a65fa2f55f5693"
+    },
+    {
+      "component": "strategy",
+      "file": "actions/strategy.py",
+      "symbol": "Strategy.act_on_packet",
+      "line": 99,
+      "file_sha256": "e830bd1170154271242ae297fa0cebf47d64343e8da6f6bcd714995de8e733c0"
+    },
+    {
+      "component": "forest",
+      "file": "actions/strategy.py",
+      "symbol": "Strategy.run_on_packet",
+      "line": 110,
+      "file_sha256": "e830bd1170154271242ae297fa0cebf47d64343e8da6f6bcd714995de8e733c0"
+    },
+    {
+      "component": "action_tree",
+      "file": "actions/tree.py",
+      "symbol": "ActionTree.run",
+      "line": 254,
+      "file_sha256": "dbd8697650a23f81e2a40c4bd891dc474d0cbc0fd87676180d57f591d1bb8263"
+    },
+    {
+      "component": "tcp_segmentation",
+      "file": "actions/fragment.py",
+      "symbol": "FragmentAction.tcp_segment",
+      "line": 98,
+      "file_sha256": "8d55cbe879a9934f450757ee556a63b781f8390ecebb8c937a232be6f2d4319f"
+    },
+    {
+      "component": "mutation",
+      "file": "actions/strategy.py",
+      "symbol": "Strategy.mutate",
+      "line": 153,
+      "file_sha256": "e830bd1170154271242ae297fa0cebf47d64343e8da6f6bcd714995de8e733c0"
+    },
+    {
+      "component": "crossover",
+      "file": "actions/strategy.py",
+      "symbol": "mate",
+      "line": 216,
+      "file_sha256": "e830bd1170154271242ae297fa0cebf47d64343e8da6f6bcd714995de8e733c0"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "fitness_function",
+      "line": 193,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "selection_tournament",
+      "line": 233,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "add_to_hof",
+      "line": 269,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "mutation_crossover",
+      "line": 316,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "run_collection_phase",
+      "line": 386,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "initialize_population",
+      "line": 453,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "genetic_solve",
+      "line": 503,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evolve.py",
+      "symbol": "eval_only",
+      "line": 645,
+      "file_sha256": "d698aa26bed50b325e6f2acec0f086a476cf327aab6570d11c7e092a9d5c719c"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "engine.py",
+      "symbol": "out_callback",
+      "line": 340,
+      "file_sha256": "8a133e1253ba8a145f223a9710056e3ac4018204cc8d775d5c261f1bb17d10fb"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "engine.py",
+      "symbol": "handle_packet",
+      "line": 359,
+      "file_sha256": "8a133e1253ba8a145f223a9710056e3ac4018204cc8d775d5c261f1bb17d10fb"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "engine.py",
+      "symbol": "in_callback",
+      "line": 376,
+      "file_sha256": "8a133e1253ba8a145f223a9710056e3ac4018204cc8d775d5c261f1bb17d10fb"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evaluator.py",
+      "symbol": "run_test",
+      "line": 192,
+      "file_sha256": "1b42ac8a03f67c285f340a8c145655df90410887ded54abb54dee787b50a17d7"
+    },
+    {
+      "component": "static_reference_only",
+      "file": "evaluator.py",
+      "symbol": "create_test_environment",
+      "line": 706,
+      "file_sha256": "1b42ac8a03f67c285f340a8c145655df90410887ded54abb54dee787b50a17d7"
+    }
+  ],
+  "genetic_search_executed": false,
+  "network_packets_sent": false,
+  "action_discovery": "Original ACTION_CACHE prepopulated with four primitive classes to avoid TraceAction raw-socket construction",
+  "note": "Written explanation and this code illustrate implementation understanding; personal mastery must be demonstrated by the applicant."
+}

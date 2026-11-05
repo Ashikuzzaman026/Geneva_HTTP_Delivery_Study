@@ -1,0 +1,28 @@
+{
+  "diagnosis": {
+    "censorship_attribution": "not_inferred",
+    "delivery_verified": false,
+    "evidence": [
+      "Endpoint error: socket_error"
+    ],
+    "root_cause": "undetermined",
+    "symptom": "protocol_or_transport_error"
+  },
+  "observation": {
+    "bytes_received": 0,
+    "connect_ms": 6.442,
+    "connected": true,
+    "declared_bytes": null,
+    "errno": null,
+    "error_kind": "socket_error",
+    "error_message": "Remote end closed connection without response",
+    "expected_bytes": 262144,
+    "expected_sha256": "cb5a0082a4610fb43487457de2bdeaa27599541c26705eb73582e57d43bc5911",
+    "headers_ms": null,
+    "schema_version": 1,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stage": "headers",
+    "status": null,
+    "total_ms": 1042.419
+  }
+}

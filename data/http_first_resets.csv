@@ -1,0 +1,7 @@
+condition,trial,eid,rst_frame,rst_seq,prior_client_ack,seq_minus_ack,prior_server_payload_bytes,checksum_valid
+blocked,1,9ys7w1k0,6,3174383590,3174383590,0,0,True
+blocked,2,6qs8zhxb,6,4057038780,4057038780,0,0,True
+blocked,3,5fkz6zlt,6,3099429726,3099429726,0,0,True
+segment22,1,gt4gb53c,8,1795207930,1795207930,0,0,True
+segment22,2,r2d8kgiv,8,4289784093,4289784093,0,0,True
+segment22,3,7qmgb2p5,8,3232715717,3232715717,0,0,True
